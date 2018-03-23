@@ -9,7 +9,7 @@ def bsort(L):
             if L[j]>L[k]:
                 L[j],L[k]=L[k],L[j]
 
-if __name__ == "__mian__":
+if __name__ == "__main__":
     L = np.random.randint(0,99,10)
     print L
     bsort(L)
