@@ -4,10 +4,12 @@ import numpy as np
 
 def isort(L):
     for i in range(1,len(L)):
-        for j in range(i,0,-1):
-            k = j-1
-            if L[k]>L[j]:
-                L[k],L[j]=L[j],L[k]
+        j = i
+        k = L[i]
+        while j>0 and L[j-1]>k:
+            L[j] = L[j-1]
+            j-=1
+        L[j] = k
 
 if __name__ == "__main__":
     L = np.random.randint(0,99,10)

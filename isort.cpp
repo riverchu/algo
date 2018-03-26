@@ -8,14 +8,11 @@ const int N=10;
 
 void isort(int a[]){
     for(int i=1; i<N; i++){
-        for(int j=i; j>0; j--){
-            int k = j-1;
-            if(a[j]<a[k]){
-                a[j]^=a[k];
-                a[k]^=a[j];
-                a[j]^=a[k];
-            }
+        int value = a[i], j;
+        for(j=i;j>0 && a[j-1]>value; j--){//&&运算符的执行顺序为先左后右
+                a[j]=a[j-1];
         }
+        a[j] = value;
     }
     return ;
 }
