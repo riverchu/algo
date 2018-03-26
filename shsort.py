@@ -7,13 +7,14 @@ def shsort(L):
         return
 
     div = len(L)/2
-    while div>=1:
+    while div>0:
         for i in range(0,div):
             for j in range(i+div,len(L),div):
-                for k in range(j,0,-div):
-                    m = k-div
-                    if L[m]>L[k]:
-                        L[m],L[k]=L[k],L[m]
+                m = L[j]
+                while j>=div and L[j-div]>m:
+                    L[j] = L[j-div]
+                    j-=div
+                L[j] = m
         div/=2
 
 if __name__ == "__main__":
