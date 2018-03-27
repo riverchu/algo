@@ -33,6 +33,7 @@ int main(){
     for(int i=0; i<N; i++){
         cout << setw(3) << a[i];
     }
+    cout << endl;
 
     return 0;
 }
