@@ -6,7 +6,7 @@
 #define len(x) sizeof(x)/sizeof(x[0])
 
 using namespace std;
-const int N = 10;
+const int N = 100;
 
 void merge(int a[], int left,int llen,int right,int rlen){
     int t[llen+rlen];
@@ -21,7 +21,6 @@ void merge(int a[], int left,int llen,int right,int rlen){
     for(int i=0; i< llen+rlen; i++){
         a[left+i] = t[i];
     }
-    cout << endl;
 
     return;
 }
@@ -35,8 +34,7 @@ void msort(int a[],int left, int right){
     msort(a,left,k);
     msort(a,k+1,right);
 
-    cout << setw(3) << left << setw(3) << k-left << setw(3) << k << setw(3) << right-k+1 << endl;
-    merge(a,left,k-left,k,right-k+1);
+    merge(a,left,k-left+1,k+1,right-k);
 }
 
 int main(){
