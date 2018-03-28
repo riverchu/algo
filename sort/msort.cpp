@@ -3,8 +3,6 @@
 #include <cstdlib>
 #include <iomanip>
 
-#define len(x) sizeof(x)/sizeof(x[0])
-
 using namespace std;
 const int N = 100;
 
