@@ -8,30 +8,35 @@
 using namespace std;
 const int N = 10;
 
-int* merge(int left[],int llen,int right[],int rlen){
-    int l=0,r=0,n=0;
+void merge(int a[], int left,int llen,int right,int rlen){
     int t[llen+rlen];
-    while (l<llen&&r<rlen){
-        t[n++] = left[l]<right[r] ? left[l++] : right[r++];
+    int l=0,r=0,n=0;
+    while (l< llen&&r< rlen){
+        t[n++] = a[left+l]<a[right+r] ? a[left+l++] : a[right+r++];
     }
 
-    while (l<llen) t[n++]=left[l++];
-    while (r<rlen) t[n++]=right[r++];
+    while (l<llen) t[n++]=a[left+l++];
+    while (r<rlen) t[n++]=a[right+r++];
 
-    return t;
+    for(int i=0; i< llen+rlen; i++){
+        a[left+i] = t[i];
+    }
+    cout << endl;
+
+    return;
 }
 
-int*  msort(int a[],int left, int right){
+void msort(int a[],int left, int right){
     if(left>=right){
-        return NULL;
+        return ;
     }
 
     int k = (left+right)/2;
-    int l[k-left],r[right-k-1];
-    &l = msort(a,left,k);
-    &r = msort(a,k+1,right);
+    msort(a,left,k);
+    msort(a,k+1,right);
 
-    return merge(l,len(l),r,len(r));
+    cout << setw(3) << left << setw(3) << k-left << setw(3) << k << setw(3) << right-k+1 << endl;
+    merge(a,left,k-left,k,right-k+1);
 }
 
 int main(){
@@ -43,7 +48,7 @@ int main(){
     }
     cout << endl;
 
-    *a = msort(a,0,N-1);
+    msort(a,0,N-1);
 
     for(int i=0; i<N; i++){
         cout << setw(3) << a[i];
