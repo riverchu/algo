@@ -1,4 +1,4 @@
-#!/bin/usr/env python
+#!/usr/bin/env python
 
 import numpy as np
 
@@ -26,7 +26,7 @@ def Merge(left,right):
 
 if __name__ == "__main__":
     L = np.random.randint(0,99,10).tolist()
-    print(L)
+    print L
     L = msort(L)
-    print(L)
+    print L
 
