@@ -22,3 +22,13 @@ class CalcStep(object):
 if __name__ == "__main__":
     i = CalcStep()
     print i.min_operates(12)
+
+'''
+初始定义s=1, m=1
+定义两个操作A和B：
+A. m = s, s = s + s
+B. s = s + m
+输入 n, 输出所需要的最小的操作次数，使得 s = n.
+
+解法：分解质因数
+'''
