@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# -*- conding:utf-8 -*-
+
+__author__ = 'indigo'
 
 class CalcStep(object):
     def __init__(self):
