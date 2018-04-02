@@ -10,29 +10,29 @@ class InsertSort(object):
     def isort(self):
         L = self.L
         for i in range(1,len(L)):
-            key = L[i]
-            for j in range(i,0,-1):
-                if L[j-1]>key:
-                    L[j] = L[j-1]
-                else:
-                    break
-            if L[j-1]>key:L[j-1] = key
-            print key,j-1
-            print L
-            '''
             j = i
             k = L[i]
             while j>0 and L[j-1]>k:
                 L[j] = L[j-1]
                 j-=1
                 L[j] = k
-                '''
+
+    #递归式写法
+    def rec_isort(self,L):
+        if len(L)<=1:
+            return L
+        T = self.rec_isort(L[1:])
+        for i in xrange(len(T)):
+            if L[0] <= T[i]:
+                return T[:i]+[L[0]]+T[i:]
+        return T+[L[0]]
 
     def show(self):
-        print self.L
+        print list(self.L)
 
 if __name__ == "__main__":
     t = InsertSort(10)
     t.show()
-    t.isort()
-    t.show()
+    #t.isort()
+    #t.show()
+    print t.rec_isort(list(t.L))
