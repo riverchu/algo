@@ -1,21 +1,23 @@
 #! /usr/bin/env python
+# -*- coding:utf-8 -*-
 __author__ = 'indigo'
 
 import numpy as np
 
 class InsertSort(object):
     def __init__(self,n):
-        self.L = np.random.randint(0,99,n)
+        self.L = list(np.random.randint(0,99,n))
 
     def isort(self):
         L = self.L
         for i in range(1,len(L)):
-            j = i
-            k = L[i]
-            while j>0 and L[j-1]>k:
-                L[j] = L[j-1]
-                j-=1
-                L[j] = k
+            for j in range(i,0,-1):
+                if L[j-1]<=L[i]:
+                    L.insert(j,L[i])
+                    break
+                elif j==1:
+                    L.insert(j-1,L[i])
+            L.pop(i+1)
 
     #递归式写法
     def rec_isort(self,L):
@@ -28,11 +30,11 @@ class InsertSort(object):
         return T+[L[0]]
 
     def show(self):
-        print list(self.L)
+        print self.L
 
 if __name__ == "__main__":
     t = InsertSort(10)
     t.show()
-    #t.isort()
-    #t.show()
-    print t.rec_isort(list(t.L))
+    t.isort()
+    t.show()
+    #print t.rec_isort(t.L)
