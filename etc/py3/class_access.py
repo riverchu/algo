@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # coding=utf-8
 
+"注释"
+
+__author__ = 'indigo'
+
 class Student(object):
     def __init__(self,name,gender):
         self.name=name
@@ -17,6 +21,10 @@ class Student(object):
         else:
             self.__gender=gender
 
+    def __len__(self):
+        return 100
+
 # 测试:
 bart = Student('Bart', 'male')
-print(bart._test)
+fn = bart.get_gender
+print(fn())
