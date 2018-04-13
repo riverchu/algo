@@ -24,7 +24,11 @@ class Student(object):
     def __len__(self):
         return 100
 
+    def __str__(self):
+        return '%s:%s:%s'% (self.__class__.__name__,self.name,self.__gender)
+
 # 测试:
 bart = Student('Bart', 'male')
 fn = bart.get_gender
 print(fn())
+print(bart)
