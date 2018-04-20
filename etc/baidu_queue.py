@@ -10,7 +10,7 @@ def C(n,m):
 def mod(n):
     return n%1000000007
 
-#另一种写法
+#3
 def calc(i,n,s):
     if i==0:
         return A(n)*C(n,0)
@@ -22,17 +22,26 @@ def calc(i,n,s):
     return sum
 
 def queue(n):
+    #3
     s = [0]*int(1e5)
-    sum = 0
+    sum=0
     for i in range(n+1):
+        #1
         sum = C(n,i)*A(n+i) - sum
+
+        #2
+        #if i%2==1:
+        #    sum -= A(2*n-i)*C(n,n-i)
+        #else:
+        #    sum += A(2*n-i)*C(n,n-i)
+
+        #3
         #s[i] = calc(i,n,s)
         #sum += s[i]
 
     k=1
     for i in range(n):
         k = mod(k*120)
-    #print s[:n+10]
 
     return mod(mod(k)*mod(sum))
 
