@@ -10,6 +10,7 @@ def C(n,m):
 def mod(n):
     return n%1000000007
 
+#另一种写法
 def calc(i,n,s):
     if i==0:
         return A(n)*C(n,0)
