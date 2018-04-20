@@ -28,6 +28,7 @@ def queue(n):
         sum = C(n,i)*A(n+i) - sum
         #s[i] = calc(i,n,s)
         #sum += s[i]
+
     k=1
     for i in range(n):
         k = mod(k*120)
@@ -35,5 +36,6 @@ def queue(n):
 
     return mod(mod(k)*mod(sum))
 
-n = raw_input('input n:')
-print queue(int(n))
+if __name__ == "__main__":
+    n = raw_input('input n:')
+    print queue(int(n))
