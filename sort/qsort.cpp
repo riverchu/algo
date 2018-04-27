@@ -10,20 +10,20 @@ void qsort(int a[],int left,int right){
     if(left>=right)
         return;
 
-    int i = left;
-    int j = right;
+    int l = left;
+    int r = right;
     int key = a[left];
 
-    while(i<j){
-        while(i<j && key<=a[j])j--;
-        a[i]=a[j];
-        while(i<j && a[i]<=key)i++;
-        a[j]=a[i];
+    while(l<r){
+        while(l<r && key<=a[r])r--;
+        a[l]=a[r];
+        while(l<r && a[l]<=key)l++;
+        a[r]=a[l];
     }
-    a[i] = key;
+    a[l] = key;
 
-    qsort(a,left,i-1);
-    qsort(a,i+1,right);
+    qsort(a,left,l-1);
+    qsort(a,l+1,right);
 
     return;
 }
