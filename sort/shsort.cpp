@@ -11,7 +11,7 @@ void shellsort(int a[],int len){
         return;
     for(int div=len/2; div>0; div/=2){
         for(int i=0; i<div; i++){
-            for(int j=i+div; j<N; j+=div){
+            for(int j=i+div; j<len; j+=div){
                 int m = a[j],k = j;
                 while(k>=div && a[k-div]>m){
                     a[k] = a[k-div];
