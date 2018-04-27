@@ -9,12 +9,10 @@ class BubbleSort(object):
 
     def bsort(self):
         L = self.L
-        for i in range(0,len(L)):
-            for j in range(0,len(L)-i-1):
-        '''
-        for i in range(len(L),0,-1):
-            for j in range(0,i-1):
-        '''
+        for i in range(len(L)):
+            for j in range(len(L)-i-1):
+        #for i in range(len(L),0,-1):
+        #    for j in range(0,i-1):
                 k = j+1
                 if L[j]>L[k]:
                     L[j],L[k]=L[k],L[j]
